@@ -33,4 +33,10 @@ public class Students {
         model.addAttribute("student",student.getStudentByName(name));
         return "StudentDetalled";
     }
+
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("students", student.getStudents());
+        return "index";
+    }
 }

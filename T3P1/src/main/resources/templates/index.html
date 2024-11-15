@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <h1>Pagina Principal</h1>
+    <h2><a th:href="@{/houses}">Visitar Todas las casas</a></h2>
+        <table>
+            <tr>
+                <th>Alumno</th>
+                <th>Casa</th>
+            </tr>
+            <tr th:each="student : ${students}">
+                <td ><a th:text="${student.getName()}" th:href="@{/StudentD/{name}(name=${student.getName()})}"></a></td>
+                <td ><a th:text="${student.getHouse().getName()}" th:href="@{/houseD/{name}(name=${student.getHouse().getName()})}"></a></td>
+            </tr>
+        </table>
+</body>
+</html>

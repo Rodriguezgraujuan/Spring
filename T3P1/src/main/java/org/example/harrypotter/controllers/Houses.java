@@ -27,4 +27,5 @@ public class Houses {
         model.addAttribute("house",houses.getHouseByName(name));
         return "HouseDetalled";
     }
+
 }
