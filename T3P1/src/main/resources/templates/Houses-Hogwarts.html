@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Houses of Hogwarts</title>
+</head>
+<body>
+    <h1>Houses of hogwarts</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Pet</th>
+            <th>Founder</th>
+        </tr>
+        <tr th:each="house : ${houses}">
+            <td><a th:href="@{/houseD/{name}(name=${house.getName()})}" th:text="${house.getName()}"></a></td>
+            <td th:text="${house.getMascot()}"></td>
+            <td th:text="${house.getFounder()}"></td>
+        </tr>
+    </table>
+</body>
+</html>
