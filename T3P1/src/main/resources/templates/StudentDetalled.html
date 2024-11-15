@@ -10,7 +10,7 @@
 <body>
     <h1>Detalled Student</h1>
     <p th:text="${student.getName()}"></p>>
-    <p th:text="${student.getHouse().getName()}"></p>>
+    <p ><a th:href="@{/houseD/{name}(name=${student.getHouse().getName()})}" th:text="${student.getHouse().getName()}"></a></p>>
     <p th:text="${student.getPatronus()}"></p>>
 
 </body>

@@ -23,8 +23,8 @@ public class Students {
     }
 
     @GetMapping("/houseStudent")
-    public String studentRequestedPram(@RequestParam String name, Model model) {
-        model.addAttribute("students", student.getStudentByName(name));
+    public String studentRequestedPram(@RequestParam(value ="name") String name, Model model) {
+        model.addAttribute("student", student.getStudentByName(name));
         return "StudentDetalled";
     }
 
