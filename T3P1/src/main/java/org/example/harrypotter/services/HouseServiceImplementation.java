@@ -22,4 +22,18 @@ public class HouseServiceImplementation implements HouseService{
         return houseRepository.getHouse(name);
     }
 
+    @Override
+    public void addHouse(House house) {
+        houseRepository.addHouse(house);
+    }
+
+    @Override
+    public void updateHouse(String name,House house) {
+        houseRepository.updateHouse(name,house);
+    }
+    @Override
+    public void deleteHouse(String name) {
+        houseRepository.deleteHouse(name);
+    }
+
 }

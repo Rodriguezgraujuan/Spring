@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -27,5 +28,37 @@ public class Houses {
         model.addAttribute("house",houses.getHouseByName(name));
         return "HouseDetalled";
     }
+
+    @GetMapping("/houses/create")
+    public String createHouse(Model model) {
+        model.addAttribute("house", new House());
+        return "create-house";
+    }
+
+    @PostMapping("/houses/create")
+    public String createHouse(House house) {
+        houses.addHouse(house);
+        return "redirect:/houses";
+    }
+
+    @GetMapping("/house/update/{name}")
+    public String updateBook(@PathVariable String name, Model model) {
+        model.addAttribute("house", houses.getHouseByName(name));
+        return "update-house";
+    }
+
+    @PostMapping("/house/update/{name}")
+    public String updateBook(@PathVariable String name, House house) {
+        houses.updateHouse(name, house);
+        return "redirect:/houses";
+    }
+
+    @GetMapping("/house/delete/{name}")
+    public String deleteBook(@PathVariable String name) {
+        houses.deleteHouse(name);
+        return "redirect:/houses";
+    }
+
+
 
 }

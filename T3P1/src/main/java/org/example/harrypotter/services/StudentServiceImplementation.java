@@ -23,4 +23,8 @@ public class StudentServiceImplementation implements StudentService {
     public List<Student> getStudentsByHouse(String house) {
         return studentRepository.getStudentsByHouse(house);
     }
+
+    public void addStudent(Student student) {
+        studentRepository.addStudent(student);
+    }
 }

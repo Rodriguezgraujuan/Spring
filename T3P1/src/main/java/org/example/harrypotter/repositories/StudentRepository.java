@@ -45,4 +45,8 @@ public class StudentRepository {
         }
         return studentsByHouse;
     }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
 }
