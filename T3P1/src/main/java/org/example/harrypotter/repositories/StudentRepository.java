@@ -49,4 +49,14 @@ public class StudentRepository {
     public void addStudent(Student student) {
         students.add(student);
     }
+
+    public void updateStudent(Student student, String name){
+        for(Student stud:students){
+            if (stud.getName().equals(name)) {
+                stud.setHouse(student.getHouse());
+                stud.setName(student.getName());
+                stud.setPatronus(student.getPatronus());
+            }
+        }
+    }
 }

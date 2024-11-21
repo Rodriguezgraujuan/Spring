@@ -9,4 +9,5 @@ public interface StudentService {
     Student getStudentByName(String name);
     List<Student> getStudentsByHouse(String house);
     void addStudent(Student student);
+    void updateStudent(Student student, String name);
 }

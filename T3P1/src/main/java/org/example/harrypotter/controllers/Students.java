@@ -24,6 +24,7 @@ public class Students {
 
     @GetMapping("/house/{houseStudent}")
     public String houseStudent(@PathVariable String houseStudent, Model model) {
+        model.addAttribute("house", houses.getHouseByName(houseStudent));
         model.addAttribute("students", students.getStudentsByHouse(houseStudent));
         return "Students-House";
     }
@@ -46,16 +47,31 @@ public class Students {
         return "index";
     }
 
-    @GetMapping("/student-create/{house}")
-    public String students(@PathVariable String house,Model model) {
+    @GetMapping("/house/createstudent/{name}")
+    public String students(@PathVariable String name, Model model) {
+        model.addAttribute("house", houses.getHouseByName(name));
         model.addAttribute("student", new Student());
-        model.addAttribute("house", houses.getHouseByName(house));
         return "Student-create";
     }
 
-    @PostMapping("/student-create/{house}")
-    public String createStudent(@PathVariable String house,Student student) {
+    @PostMapping("/house/createstudent/{name}")
+    public String createStudent(Student student, @PathVariable String name) {
+        student.setHouse(houses.getHouseByName(name));
         students.addStudent(student);
+        return "redirect:/house/{name}";
+    }
+
+    @GetMapping("/student/update/{name}")
+    public String updateStudent(@PathVariable String name, Model model) {
+        model.addAttribute("student", students.getStudentByName(name));
+        model.addAttribute("houses", houses.getHouses());
+        return "update-student";
+    }
+
+
+    @PostMapping("/student/update/{name}")
+    public String updateStudent(@PathVariable String name, Student student) {
+        students.updateStudent(student, name);
         return "redirect:/";
     }
 }
