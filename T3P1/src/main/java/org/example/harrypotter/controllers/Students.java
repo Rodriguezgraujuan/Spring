@@ -71,6 +71,8 @@ public class Students {
 
     @PostMapping("/student/update/{name}")
     public String updateStudent(@PathVariable String name, Student student) {
+        House house = houses.getHouseByName(student.getHouse().getName());
+        student.setHouse(house);
         students.updateStudent(student, name);
         return "redirect:/";
     }

@@ -12,7 +12,7 @@
     <form action="#" method="post" th:object="${student}" th:action="@{/student/update/{name}(name=${name})}">
         <p>Name: <input type="text" th:field="*{name}"></p>
         <label>Elige casa
-            <select th:field="${student.house}">
+            <select th:field="*{house.name}">
                 <option th:each="house : ${houses}" th:value="${house.name}" th:text="${house.name}"></option>
             </select>
         </label>
