@@ -16,7 +16,7 @@
             <th>Founder</th>
         </tr>
         <tr th:each="house : ${houses}">
-            <td><a th:href="@{/houseD/{name}(name=${house.getName()})}" th:text="${house.getName()}"></a></td>
+            <td><a th:href="@{/house/{name}(name=${house.getName()})}" th:text="${house.getName()}"></a></td>
             <td th:text="${house.getMascot()}"></td>
             <td th:text="${house.getFounder()}"></td>
             <td><a th:href="@{/house/update/{name}(name=${house.getName()})}">Modificar casa</a></td>
