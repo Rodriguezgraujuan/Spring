@@ -26,4 +26,11 @@ public class EquipoService {
     public Equipo findById(long id) {
         return equipoRepository.findById(id).orElse(null);
     }
+
+    public Equipo update(Equipo equipo) {
+        Equipo equipoExistente = equipoRepository.findById((long) equipo.getId()).orElse(null);
+        assert equipoExistente != null;
+        equipoExistente.setName(equipo.getName());
+        return equipoRepository.save(equipoExistente);
+    }
 }

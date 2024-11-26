@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Trabajador</title>
+</head>
+<body>
+<h1>Crear Trabajador</h1>
+<form action="#" method="post" th:object="${trabajador}" th:action="@{/trabajador/create}">
+    <p>Nombre: <input type="text" th:field="*{name}" required></p>
+    <p>Edad: <input type="number" th:field="*{edad}" required></p>
+
+    <label>Equipo:
+        <select th:field="*{equipo.id}" required>
+            <option th:each="equipo : ${equipos}"
+                    th:value="${equipo.id}"
+                    th:text="${equipo.name}">
+            </option>
+        </select>
+    </label>
+
+    <br>
+
+    <label>Tareas:
+        <select multiple th:field="*{tareas}">
+            <option th:each="tarea : ${tareas}"
+                    th:value="${tarea}"
+                    th:text="${tarea.description}">
+            </option>
+        </select>
+    </label>
+    <br>
+
+    <input type="submit" value="Crear">
+</form>
+</body>
+</html>

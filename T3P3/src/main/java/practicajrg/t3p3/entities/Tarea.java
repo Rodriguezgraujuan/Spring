@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,22 +31,22 @@ public class Tarea {
     private String description;
 
     @Column(name="startDate", nullable = false)
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name="endDate", nullable = false)
-    private Date endDate;
+    private LocalDate endDate;
 
     @Column(name="type", nullable = false)
     private Type type;
 
-    enum Type{
+    public enum Type{
         Mejora, Bug, Refactorizacion
     }
 
     @Column(name="status", nullable = false)
     private Status status;
 
-    enum Status{
+    public enum Status{
         Abierta, Progreso, Cerrada
     }
 

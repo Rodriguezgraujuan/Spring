@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Creando una Tarea</h1>
+<form action="#" method="post" th:object="${tarea}" th:action="@{/tarea/create}">
+    <p>Nombre:<input type="text" th:field="*{name}"></p></p>
+    <p>Descripcion: <input type="text" th:field="*{description}"></p>
+    <p>Fecha comienzo: <input type="date" th:field="*{startDate}"></p>
+    <p>Fecha finalizacion: <input type="date" th:field="*{endDate}"></p>
+    <label>Elige Tipo
+        <select th:field="*{type}">
+            <option th:each="type : ${typeValues}" th:value="${type}" th:text="${type}"></option>
+        </select>
+    </label>
+    <label>Elige Estado
+        <select th:field="*{status}">
+            <option th:each="status : ${statusValues} " th:value="${status}" th:text="${status}"></option>
+        </select>
+    </label>
+    <p><input type="submit" value="Crear"></p>
+</form>
+</body>
+</html>

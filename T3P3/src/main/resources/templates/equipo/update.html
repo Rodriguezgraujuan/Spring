@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Crearndo un Equipo</h1>
-    <form action="#" method="post" th:object="${equipo}" th:action="@{/equipo/create}">
-        <p>Id:<input type="text" th:field="*{id}"></p></p>
-        <p>Name: <input type="text" th:field="*{name}"></p>
-        <p><input type="submit" value="Crear"></p>
-    </form>
+<h1>Modificando un Equipo</h1>
+<form action="#" method="post" th:object="${equipo}" th:action="@{/equipo/create}">
+    <p>Id:<input type="text" th:field="*{id}"></p></p>
+    <p>Name: <input type="text" th:field="*{name}"></p>
+    <p><input type="submit" value="Crear"></p>
+</form>
 </body>
 </html>

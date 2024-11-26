@@ -39,4 +39,8 @@ public class Trabajador {
             inverseJoinColumns = @JoinColumn(name = "tarea_id")  // Columna que hace referencia a la Tarea
     )
     private Set<Tarea> tareas = new HashSet<>();
+
+    public void addTareas(Tarea tarea) {
+        tareas.add(tarea);
+    }
 }

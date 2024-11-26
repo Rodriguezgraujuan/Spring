@@ -17,7 +17,7 @@
             <th>Trabajadores</th>
         </tr>
         <tr th:each="equipo : ${equipos}">
-            <td th:text="${equipo.getName()}"></td>
+            <td th:text="${equipo.getId()}"></td>
             <td th:text="${equipo.getName()}"></td>
             <td th:text="${equipo.getTrabajadores()}"></td>
             <td><a th:href="@{/equipo/modificar/{id}(id=${equipo.getId()})}">modificar</a></td>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista De Equipos</title>
+</head>
+<body>
+<h1>Lista de Tareas</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Desc</th>
+        <th>Fecha comienzo</th>
+        <th>Fecha finalizacion</th>
+        <th>Tipo</th>
+        <th>Estado</th>
+
+    </tr>
+    <tr th:each="tarea : ${tareas}">
+        <td th:text="${tarea.getId()}"></td>
+        <td th:text="${tarea.getName()}"></td>
+        <td th:text="${tarea.getDescription()}"></td>
+        <td th:text="${tarea.getStartDate()}"></td>
+        <td th:text="${tarea.getEndDate()()}"></td>
+        <td th:text="${tarea.getType()()}"></td>
+        <td th:text="${tarea.getStatus()()}"></td>
+    </tr>
+</table>
+</body>
+</html>

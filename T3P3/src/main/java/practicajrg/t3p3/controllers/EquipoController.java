@@ -37,6 +37,13 @@ public class EquipoController {
     @GetMapping("/modificar/{id}")
     public String modificarEquipo(@PathVariable long id, Model model) {
         model.addAttribute("equipo", equipoService.findById(id));
-        return "equipo/create";
+        return "equipo/update";
     }
+
+    @PostMapping("/update")
+    public String updateEquipo(@ModelAttribute Equipo equipo) {
+        equipoService.update(equipo);
+        return "redirect:/equipo";
+    }
+
 }
