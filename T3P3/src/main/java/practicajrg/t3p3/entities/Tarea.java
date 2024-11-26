@@ -1,14 +1,10 @@
 package practicajrg.t3p3.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -18,6 +14,9 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @ToString
+
+@Entity
+@Table(name="trabajadores")
 public class Tarea {
 
     @Id
