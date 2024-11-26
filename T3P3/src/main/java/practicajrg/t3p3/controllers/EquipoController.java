@@ -2,10 +2,7 @@ package practicajrg.t3p3.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import practicajrg.t3p3.entities.Equipo;
 import practicajrg.t3p3.services.EquipoService;
 
@@ -20,20 +17,26 @@ public class EquipoController {
     }
 
     @GetMapping
-    public String listAuthors(Model model) {
+    public String listaEquipos(Model model) {
         model.addAttribute("equipos", equipoService.findAll());
         return "equipo/list";
     }
 
     @GetMapping("/create")
-    public String createAuthor(Model model) {
+    public String createEquipo(Model model) {
         model.addAttribute("equipo", new Equipo());
         return "equipo/create";
     }
 
     @PostMapping("/create")
-    public String save(@ModelAttribute Equipo equipo) {
+    public String createEquipo(@ModelAttribute Equipo equipo) {
         equipoService.save(equipo);
         return "redirect:/equipo";
+    }
+
+    @GetMapping("/modificar/{id}")
+    public String modificarEquipo(@PathVariable long id, Model model) {
+        model.addAttribute("equipo", equipoService.findById(id));
+        return "equipo/create";
     }
 }

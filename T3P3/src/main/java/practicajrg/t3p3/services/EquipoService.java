@@ -22,4 +22,8 @@ public class EquipoService {
     public Equipo save(Equipo equipo) {
         return equipoRepository.save(equipo);
     }
+
+    public Equipo findById(long id) {
+        return equipoRepository.findById(id).orElse(null);
+    }
 }
