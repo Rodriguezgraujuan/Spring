@@ -17,7 +17,7 @@ import java.util.Set;
 @ToString
 
 @Entity
-@Table(name="trabajadores")
+@Table(name="tareas")
 public class Tarea {
 
     @Id

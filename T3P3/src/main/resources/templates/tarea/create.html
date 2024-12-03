@@ -16,14 +16,20 @@
     <p>Fecha finalizacion: <input type="date" th:field="*{endDate}"></p>
     <label>Elige Tipo
         <select th:field="*{type}">
-            <option th:each="type : ${typeValues}" th:value="${type}" th:text="${type}"></option>
+            <option th:each="type : ${tipos}" th:value="${type}" th:text="${type}"></option>
         </select>
     </label>
     <label>Elige Estado
         <select th:field="*{status}">
-            <option th:each="status : ${statusValues} " th:value="${status}" th:text="${status}"></option>
+            <option th:each="status : ${estados} " th:value="${status}" th:text="${status}"></option>
         </select>
     </label>
+    <br>
+    <label for="trabajador" class="form-label">Trabajadores</label>
+    <div th:each="trabajador : ${trabajadores}">
+        <input id="trabajador" type="checkbox" th:field="*{trabajadores}" th:value="${trabajador.id}">
+        <span th:text="${trabajador.name}"></span>
+    </div>
     <p><input type="submit" value="Crear"></p>
 </form>
 </body>
