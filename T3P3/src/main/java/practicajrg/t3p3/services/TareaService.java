@@ -25,4 +25,8 @@ public class TareaService {
     public Tarea save(Tarea tarea) {
         return tareaRepository.save(tarea);
     }
+
+    public Tarea findById(long id) {
+        return tareaRepository.findById(id).orElse(null);
+    }
 }

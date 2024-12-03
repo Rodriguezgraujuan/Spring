@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Lista de Trabajadores</h1>
+<p th:text = "${trabajadores}"></p>
 <h2><a th:href="@{trabajador/create}">Crear Trabajador</a></h2>
 <table>
     <tr>
@@ -19,13 +20,13 @@
         <th>tareas</th>
 
     </tr>
-    <tr th:each="trabajador : ${trabajadores}">
+    <!--<tr th:each="trabajador : ${trabajadores}">
         <td th:text="${trabajador.getId()}"></td>
         <td th:text="${trabajador.getName()}"></td>
         <td th:text="${trabajador.getEdad()}"></td>
         <td th:text="${trabajador.getEquipo()}"></td>
         <td th:text="${trabajador.getTareas()}"></td>
-    </tr>
+    </tr>-->
 </table>
 </body>
 </html>

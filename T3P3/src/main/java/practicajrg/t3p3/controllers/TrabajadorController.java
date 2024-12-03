@@ -32,7 +32,7 @@ public class TrabajadorController {
     }
 
     @GetMapping
-    public String listaEquipos(Model model) {
+    public String listaTrabajadores(Model model) {
         model.addAttribute("trabajadores", trabajadorService.findAll());
         return "trabajador/list";
     }
@@ -46,28 +46,8 @@ public class TrabajadorController {
     }
 
     @PostMapping("/create")
-    public String createTrabajador(@ModelAttribute Trabajador trabajador,BindingResult result) {
-        if (result.hasErrors()) {
-            return "trabajador/create";
-        }
-
-        if (trabajador.getTareas().isEmpty()) {
-            // Crear una tarea predeterminada si no hay tareas asignadas
-            Tarea tareaPredeterminada = new Tarea();
-            tareaPredeterminada.setName("Default");
-            tareaPredeterminada.setDescription("Tarea predeterminada");
-            tareaPredeterminada.setStartDate(LocalDate.now());
-            tareaPredeterminada.setEndDate(LocalDate.now().plusDays(7));  // Asigna un valor por defecto para endDate
-            tareaPredeterminada.setStatus(Tarea.Status.Cerrada);
-            tareaPredeterminada.setType(Tarea.Type.Bug);
-            // Guarda la tarea predeterminada (asegúrate de que la tarea se guarde en la base de datos)
-            tareaService.save(tareaPredeterminada);
-
-            // Asignar la tarea predeterminada al trabajador
-            trabajador.addTareas(tareaPredeterminada);
-        }
-
+    public String createTrabajador(@ModelAttribute Trabajador trabajador) {
         trabajadorService.save(trabajador);
-        return "redirect:/trabajadores/list";
+        return "redirect:/trabajador/list";
     }
 }

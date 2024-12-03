@@ -14,24 +14,20 @@
     <p>Edad: <input type="number" th:field="*{edad}" required></p>
 
     <label>Equipo:
-        <select th:field="*{equipo.id}" required>
-            <option th:each="equipo : ${equipos}"
-                    th:value="${equipo.id}"
-                    th:text="${equipo.name}">
+        <select th:field="*{equipo}" required>
+            <option th:each="e : ${equipos}"
+                    th:value="${e.id}"
+                    th:text="${e.name}">
             </option>
         </select>
     </label>
 
     <br>
-
-    <label>Tareas:
-        <select multiple th:field="*{tareas}">
-            <option th:each="tarea : ${tareas}"
-                    th:value="${tarea}"
-                    th:text="${tarea.description}">
-            </option>
-        </select>
-    </label>
+    <label for="t" class="form-label">Tareas</label>
+    <div th:each="tarea : ${tareas}">
+        <input id="t" type="checkbox" th:field="*{tareas}" th:value="${tarea.id}">
+        <span th:text="${tarea.name}"></span>
+    </div>
     <br>
 
     <input type="submit" value="Crear">

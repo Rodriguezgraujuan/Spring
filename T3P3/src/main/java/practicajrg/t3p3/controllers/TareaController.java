@@ -3,10 +3,7 @@ package practicajrg.t3p3.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import practicajrg.t3p3.entities.Equipo;
 import practicajrg.t3p3.entities.Tarea;
 import practicajrg.t3p3.services.TareaService;
@@ -43,6 +40,24 @@ public class TareaController {
     public String createTarea(@ModelAttribute Tarea tarea, BindingResult result) {
         if (result.hasErrors()) {
             return "tarea/create";
+        }
+        tareaService.save(tarea);
+        return "redirect:/tarea";
+    }
+
+    @GetMapping("/modificar/{id}")
+    public String modificarTarea(@PathVariable long id, Model model) {
+        model.addAttribute("tarea", tareaService.findById(id));
+        model.addAttribute("trabajadores", trabajadorService.findAll());
+        model.addAttribute("tipos", Tarea.Type.values());
+        model.addAttribute("estados", Tarea.Status.values());
+        return "tarea/update";
+    }
+
+    @PostMapping("/modificar")
+    public String modificarTarea(@ModelAttribute Tarea tarea, BindingResult result) {
+        if (result.hasErrors()) {
+            return "tarea/update";
         }
         tareaService.save(tarea);
         return "redirect:/tarea";

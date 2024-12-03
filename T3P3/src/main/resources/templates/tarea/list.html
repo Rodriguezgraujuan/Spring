@@ -5,10 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista De Equipos</title>
+    <title>Lista De Tareas</title>
 </head>
 <body>
 <h1>Lista de Tareas</h1>
+<h2><a th:href="@{/tarea/create}">Crear Tarea</a></h2>
 <table>
     <tr>
         <th>Id</th>
@@ -28,6 +29,7 @@
         <td th:text="${tarea.getEndDate()}"></td>
         <td th:text="${tarea.getType()}"></td>
         <td th:text="${tarea.getStatus()}"></td>
+        <td><a th:href="@{/tarea/modificar/{id}(id=${tarea.getId()})}">modificar</a></td>
     </tr>
 </table>
 </body>

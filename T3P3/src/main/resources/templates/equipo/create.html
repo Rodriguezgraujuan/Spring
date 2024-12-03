@@ -10,7 +10,7 @@
 <body>
     <h1>Crearndo un Equipo</h1>
     <form action="#" method="post" th:object="${equipo}" th:action="@{/equipo/create}">
-        <p>Id:<input type="text" th:field="*{id}"></p></p>
+        <input type="hidden" th:field="*{id}">
         <p>Name: <input type="text" th:field="*{name}"></p>
         <p><input type="submit" value="Crear"></p>
     </form>
