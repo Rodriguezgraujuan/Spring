@@ -9,5 +9,65 @@
 </head>
 <body>
     <a th:href="@{/retrasadas}">Tareas retrasadas</a>
+    <br>
+    <br>
+    <h2>Ver Tareas de los trabajadores: </h2>
+    <table th:each="t : ${trabajadores}">
+        <tr><a th:href="@{trabajador/{id}(id=${t.getId()})}" th:text="${t.name}"></a></tr>
+    </table>
+
+    <br>
+    <h2>Tareas Abiertas:</h2>
+    <table style="border: 2px solid black">
+        <tr>
+            <th>Nombre</th>
+            <th>Start Date</th>
+        </tr>
+        <tr th:each="tarea : ${tareasAbiertas}">
+            <td th:text="${tarea.name}"></td>
+            <td th:text="${tarea.getStartDate()}"></td>
+        </tr>
+    </table>
+
+    <br>
+    <h2>Tareas Bug</h2>
+    <table style="border: 2px solid black">
+        <tr>
+            <th>Nombre</th>
+            <th>Start Date</th>
+        </tr>
+        <tr th:each="ta : ${tareasBug}">
+            <td th:text="${ta.name}"></td>
+            <td th:text="${ta.getType().toString()}"></td>
+        </tr>
+    </table>
+
+    <br>
+    <h2>Tareas Mejora</h2>
+    <table style="border: 2px solid black">
+        <tr>
+            <th>Nombre</th>
+            <th>Start Date</th>
+        </tr>
+        <tr th:each="ta : ${tareasMejora}">
+            <td th:text="${ta.name}"></td>
+            <td th:text="${ta.getType().toString()}"></td>
+        </tr>
+    </table>
+
+    <br>
+    <h2>Tareas Refactorizacion</h2>
+    <table style="border: 2px solid black">
+        <tr>
+            <th>Nombre</th>
+            <th>Start Date</th>
+        </tr>
+        <tr th:each="ta : ${tareasRefactorizacion}">
+            <td th:text="${ta.name}"></td>
+            <td th:text="${ta.getType().toString()}"></td>
+        </tr>
+    </table>
+
+
 </body>
 </html>
