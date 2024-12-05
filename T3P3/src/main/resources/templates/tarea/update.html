@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Creando una Tarea</h1>
+<h1>Modificando una Tarea</h1>
 <form action="#" method="post" th:object="${tarea}" th:action="@{/tarea/modificar}">
     <input type="hidden" th:field="*{id}">
     <p>Nombre:<input type="text" th:field="*{name}"></p>
@@ -26,9 +26,9 @@
         </select>
     </label>
     <br>
-    <label for="trabajador" class="form-label">Trabajadores</label>
+    <label for="t" class="form-label">Trabajadores</label>
     <div th:each="trabajador : ${trabajadores}">
-        <input id="trabajador" type="checkbox" th:field="*{trabajadores}" th:value="${trabajador.id}">
+        <input id="t" type="checkbox" th:field="*{trabajadores}" th:value="${trabajador.id}">
         <span th:text="${trabajador.name}"></span>
     </div>
     <p><input type="submit" value="Actualizar"></p>

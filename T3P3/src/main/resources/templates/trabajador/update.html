@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Modificando un Trabajador</h1>
+<form action="#" method="post" th:object="${trabajador}">
+    <input type="hidden" th:field="*{id}">
+    <p>Name: <input type="text" th:field="*{name}"></p>
+    <p>Edad: <input type="number" th:field="*{edad}"></p>
+
+    <label>Equipo:
+        <select th:field="*{equipo}" required>
+            <option th:each="e : ${equipos}"
+                    th:value="${e.id}"
+                    th:text="${e.name}">
+            </option>
+        </select>
+    </label>
+
+    <label for="t" class="form-label">Tareas</label>
+    <div th:each="tarea : ${tareas}">
+        <input id="t" type="checkbox" th:field="*{tareas}" th:value="${tarea.id}">
+        <span th:text="${tarea.name}"></span>
+    </div>
+    <br>
+    <p><input type="submit" value="Crear"></p>
+</form>
+</body>
+</html>

@@ -46,4 +46,10 @@ public class EquipoController {
         return "redirect:/equipo";
     }
 
+    @GetMapping("/{id}")
+    public String equipoDetallado(@PathVariable long id, Model model){
+        model.addAttribute("equipo", equipoService.findById(id));
+        return "equipo/eD";
+    }
+
 }

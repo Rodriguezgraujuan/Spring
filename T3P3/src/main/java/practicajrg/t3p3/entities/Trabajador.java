@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +27,7 @@ public class Trabajador {
     @Column(name="edad", nullable = false)
     private int edad;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne()
     @JoinColumn(name = "equipo_id", nullable = false)
     private Equipo equipo;
 

@@ -5,13 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lista De Equipos</title>
 </head>
 <body>
-    <h1><a th:href="@{/tarea}">Listar Tareas</a></h1>
-    <h1><a th:href="@{/trabajador}">Listar Trabajadores</a></h1>
-    <h1><a th:href="@{/equipo}">Listar Equipos</a></h1>
-    <h1><a th:href="@{/mando}">Filtrar Tareas</a></h1>
-
+<h1>Equipo Detallado</h1>
+    <b>Id:</b><p th:text="${equipo.getId()}"></p>
+    <b>Nombre:</b><p th:text="${equipo.getName()}"></p>
+    <b>Trabajadores:</b><p th:each="trabajador : ${equipo.getTrabajadores()}" th:text="${trabajador.getName()}"></p>
 </body>
 </html>

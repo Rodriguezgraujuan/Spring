@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trabajador Detallado</title>
+</head>
+<body>
+<h1>Tarea Detallado</h1>
+<b>Id:</b><p th:text="${tarea.getId()}"></p>
+<b>Nombre:</b><p th:text="${tarea.getName()}"></p>
+<b>Descripcion:</b><p th:text="${tarea.getDescription()}"></p>
+<b>Start Date:</b><p th:text="${tarea.getStartDate().toString()}"></p>
+<b>End Date:</b><p th:text="${tarea.getEndDate().toString()}"></p>
+<b>Status:</b><p th:text="${tarea.getStatus()}"></p>
+<b>Type:</b><p th:text="${tarea.getType()}"></p>
+<b>Trabajadores:</b><p th:each="trabajador: ${tarea.getTrabajadores()}" th:text="${trabajador.name}"></p>
+
+</body>
+</html>

@@ -25,4 +25,8 @@ public class TrabajadorService {
     public Trabajador save(Trabajador trabajador) {
         return trabajadorRepository.save(trabajador);
     }
+
+    public Trabajador findById(long id) {
+        return trabajadorRepository.findById(id).orElse(null);
+    }
 }

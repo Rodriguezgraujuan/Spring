@@ -9,6 +9,8 @@ import practicajrg.t3p3.entities.Tarea;
 import practicajrg.t3p3.services.TareaService;
 import practicajrg.t3p3.services.TrabajadorService;
 
+import java.util.HashSet;
+
 @Controller
 @RequestMapping("/tarea")
 public class TareaController {
@@ -47,7 +49,9 @@ public class TareaController {
 
     @GetMapping("/modificar/{id}")
     public String modificarTarea(@PathVariable long id, Model model) {
-        model.addAttribute("tarea", tareaService.findById(id));
+        Tarea tarea = tareaService.findById(id);
+        tarea.setTrabajadores(new HashSet<>());
+        model.addAttribute("tarea", tarea);
         model.addAttribute("trabajadores", trabajadorService.findAll());
         model.addAttribute("tipos", Tarea.Type.values());
         model.addAttribute("estados", Tarea.Status.values());
@@ -61,5 +65,11 @@ public class TareaController {
         }
         tareaService.save(tarea);
         return "redirect:/tarea";
+    }
+
+    @GetMapping("/{id}")
+    public String tareaDetallada(Model model, @PathVariable long id){
+        model.addAttribute("tarea", tareaService.findById(id));
+        return "tarea/taD";
     }
 }

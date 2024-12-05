@@ -19,16 +19,17 @@
         <th>Fecha finalizacion</th>
         <th>Tipo</th>
         <th>Estado</th>
-
+        <th>Trabajadores</th>
     </tr>
     <tr th:each="tarea : ${tareas}">
         <td th:text="${tarea.getId()}"></td>
-        <td th:text="${tarea.getName()}"></td>
+        <td><a th:href="@{/tarea/{id}(id=${tarea.getId()})}"  th:text="${tarea.getName()}"></a></td>
         <td th:text="${tarea.getDescription()}"></td>
         <td th:text="${tarea.getStartDate()}"></td>
         <td th:text="${tarea.getEndDate()}"></td>
         <td th:text="${tarea.getType()}"></td>
         <td th:text="${tarea.getStatus()}"></td>
+        <td th:each="trabajador : ${tarea.getTrabajadores()}" th:text="${trabajador.getName()}"></td>
         <td><a th:href="@{/tarea/modificar/{id}(id=${tarea.getId()})}">modificar</a></td>
     </tr>
 </table>
