@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>practicaJRG</groupId>
-    <artifactId>Cookies</artifactId>
+    <artifactId>T4_P1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Coockies</name>
-    <description>Coockies</description>
+    <name>T4_P1</name>
+    <description>T4_P1</description>
     <url/>
     <licenses>
         <license/>
