@@ -9,13 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import practicajrg.t4_p2.Service.UsuarioService;
-
-import java.util.List;
 
 @Configuration
 public class WebSecurity {
-    private final UsuarioService usuarioService;
     // Método con la autorización
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -43,8 +39,18 @@ public class WebSecurity {
     //Metodo de autenticacion
     @Bean
     public UserDetailsService userDetailsService() {
-        return myUserDetailsService();
+        return new InMemoryUserDetailsManager(
+                User.withUsername("user")
+                        .password(passwordEncoder().encode("password"))
+                        .roles("USER")
+                        .build(),
+                User.withUsername("admin")
+                        .password(passwordEncoder().encode("password"))
+                        .roles("ADMIN")
+                        .build()
+        );
     }
+
 
     //Codificación
     @Bean
